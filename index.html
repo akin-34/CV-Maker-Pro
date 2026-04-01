@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halit Akın - CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div class="controls">
+        <button onclick="downloadPDF()" class="btn-download"><i class="fas fa-file-pdf"></i> PDF İndir</button>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="loadImage(event)">
+    </div>
+
+    <div class="cv-container" id="cv-content">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <!-- Changed to a div with id for background-image to avoid distortion in PDF -->
+                <div class="profile-img-container" id="profile-container"
+                    onclick="document.getElementById('imageUpload').click()"
+                    style="background-image: url('profile.png');">
+                </div>
+            </div>
+
+            <div class="social-links-v2">
+                <div class="social-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/halit-ak%C4%B1n-76787b226/" target="_blank">linkedin.com/in/halit-akin</a>
+                </div>
+                <div class="social-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/akin-34" target="_blank">github.com/akin-34</a>
+                </div>
+                <div class="social-item">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="https://www.kariyer.net/ozgecmis/hax3qgs4lj" target="_blank">kariyer.net/ozgecmis/</a>
+                </div>
+                <div class="social-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:halitakin883@gmail.com">halitakin883@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h3>Kişisel Bilgiler</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span contenteditable="true">0553 724 98 21</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span contenteditable="true">halitakin883@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span contenteditable="true">Ümraniye, İstanbul</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span contenteditable="true">24 Yaşında</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span contenteditable="true">Askerlik: Tamamlandı (2025)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-car"></i>
+                    <span contenteditable="true">Ehliyet: B (Manuel), A2</span>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <div class="section-header">
+                    <h3>Beceriler</h3>
+                    <button class="btn-add" onclick="addSkill()" title="Beceri Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <ul class="skills-list" id="skills-list">
+                    <li class="maker-item">
+                        <span contenteditable="true">Active Directory</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Sentinel One</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Asset Explorer</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">ServiceDesk</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">ServiceCore</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Ofis Otomasyon Sistemleri</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Python</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">PostgreSQL</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">C#</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Windows & Microsoft 365 Yönetimi</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Donanım & Ağ Sorun Giderme (TCP/IP)</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Docker & Konteyner Teknolojileri</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                    <li class="maker-item">
+                        <span contenteditable="true">Windows (İleri) & Linux (Temel)</span>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="languages-section">
+                <div class="section-header">
+                    <h3>Diller</h3>
+                    <button class="btn-add" onclick="addLanguage()" title="Dil Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <ul class="languages-list" id="languages-list">
+                    <li class="maker-item">
+                        <div class="lang-row">
+                            <span class="skill-name" contenteditable="true">İngilizce</span>
+                            <div class="stars" contenteditable="false">
+                                <i class="fas fa-star" onclick="setRating(this, 1)"></i><i class="fas fa-star"
+                                    onclick="setRating(this, 2)"></i><i class="fas fa-star"
+                                    onclick="setRating(this, 3)"></i><i class="far fa-star"
+                                    onclick="setRating(this, 4)"></i><i class="far fa-star"
+                                    onclick="setRating(this, 5)"></i>
+                            </div>
+                        </div>
+                        <button class="btn-delete" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1 contenteditable="true">Halit Akın</h1>
+                <h2 contenteditable="true">BT HelpDesk Uzman Yardımcısı</h2>
+            </header>
+
+            <section class="section">
+                <div class="section-header">
+                    <h3>İş Deneyimi</h3>
+                    <span class="total-experience">Toplam Deneyim: 1 Yıl 9 Ay</span>
+                    <button class="btn-add dark" onclick="addExperience()" title="Deneyim Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <div class="timeline" id="experience-list">
+                    <div class="timeline-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <div class="job-header">
+                            <h4 contenteditable="true" style="margin-bottom: 2px;">Aydınlı Grup</h4>
+                            <div contenteditable="true" style="font-weight: 400; font-size: 0.95rem; color: #444;">BT
+                                HelpDesk Uzman Yardımcısı</div>
+                            <span class="date" contenteditable="true">Şubat 2025 - Ocak 2026 (11 Ay)</span>
+                        </div>
+                        <div class="job-description" contenteditable="true">
+                            <p>-BT destek operasyonları ve süreç iyileştirme çalışmaları koordine edilerek operasyonel
+                                verimlilik artırıldı.</p>
+                            <p>-Kullanıcı talepleri ve teknik problemler, ilgili ekiplerle koordineli şekilde uçtan uca
+                                yönetilerek hızlı ve kalıcı çözümlerle sonuçlandırıldı.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <div class="job-header">
+                            <h4 contenteditable="true" style="margin-bottom: 2px;">Aydınlı Grup</h4>
+                            <div contenteditable="true" style="font-weight: 400; font-size: 0.95rem; color: #444;">BT HelpDesk Yeni Mezun</div>
+                            <span class="date" contenteditable="true">Ağustos 2024 - Şubat 2025 (6 Ay)</span>
+                        </div>
+                        <div class="job-description" contenteditable="true">
+                            <p>-Kullanıcıların teknik sorunlarına çözüm üretilerek hizmet sürekliliği sağlandı.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <div class="job-header">
+                            <h4 contenteditable="true" style="margin-bottom: 2px;">Aydınlı Grup</h4>
+                            <div contenteditable="true" style="font-weight: 400; font-size: 0.95rem; color: #444;">BT HelpDesk Part-Time Stajyer</div>
+                            <span class="date" contenteditable="true">Mayıs 2023 - Eylül 2023 (4 Ay)</span>
+                        </div>
+                        <div class="job-description" contenteditable="true">
+                            <p>-Donanım kurulumu ve temel BT destek görevlerinde aktif rol üstlenildi.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h3>Eğitim</h3>
+                    <button class="btn-add dark" onclick="addEducation()" title="Eğitim Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <div id="education-list">
+                    <div class="education-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <h4 contenteditable="true" style="margin-bottom: 2px;">Kafkas Üniversitesi</h4>
+                        <div contenteditable="true" style="font-weight: 400; font-size: 0.95rem; color: #444;">Yönetim
+                            Bilişim Sistemleri (3.12)</div>
+                        <span class="date" contenteditable="true">2020 - 2024</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h3>Sertifikalar</h3>
+                    <button class="btn-add dark" onclick="addCertificate()" title="Sertifika Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <div id="certificate-list">
+                    <div class="course-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <h4 contenteditable="true" style="margin-bottom: 2px;">Open English</h4>
+                        <div contenteditable="true" style="font-weight: 400; font-size: 0.95rem; color: #444;">B1 Seviye İngilizce</div>
+                        <span class="date" contenteditable="true">Haziran 2024 - Ocak 2025</span>
+                    </div>
+                    <div class="course-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <h4 contenteditable="true" style="margin-bottom: 2px;">Diksiyon Sertifikası</h4>
+                        <div contenteditable="true" style="font-weight: 400; font-size: 0.95rem; color: #444;">Aydınlı Grup</div>
+                        <span class="date" contenteditable="true">2024</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h3>Projeler</h3>
+                    <button class="btn-add dark" onclick="addProject()" title="Proje Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <div id="project-list">
+                    <div class="timeline-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <div class="job-header">
+                            <h4 contenteditable="true" style="margin-bottom: 2px;">AssetAgent V2 - BT Varlık ve Uzaktan Yönetim Sistemi</h4>
+                            <div style="font-size: 0.85rem; color: #666;">
+                                <span>Next.js 16 | FastAPI | WebRTC | Docker</span>
+                            </div>
+                        </div>
+                        <div class="job-description" contenteditable="true">
+                            <p>Binlerce cihazın gerçek zamanlı donanım envanter takibi ve 60 FPS düşük gecikmeli uzaktan masaüstü yönetimi.</p>
+                            <p style="margin-top: 5px;"><i class="fab fa-github"></i> <a href="https://github.com/akin-34/AssetAgentV2" target="_blank" style="color: #2b6cb0; text-decoration: none;">github.com/akin-34/AssetAgentV2</a></p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <div class="job-header">
+                            <h4 contenteditable="true" style="margin-bottom: 2px;">ServisNode - Destek Talebi ve Envanter Portalı</h4>
+                            <div style="font-size: 0.85rem; color: #666;">
+                                <span>Next.js 14 | Prisma | PostgreSQL | NextAuth</span>
+                            </div>
+                        </div>
+                        <div class="job-description" contenteditable="true">
+                            <p>Kurumsal destek (Ticket) süreçleri ve IT varlık zimmet takibinin tek merkezden yönetildiği operasyonel portal.</p>
+                            <p style="margin-top: 5px;"><i class="fab fa-github"></i> <a href="https://github.com/akin-34/ServisNode" target="_blank" style="color: #2b6cb0; text-decoration: none;">github.com/akin-34/ServisNode</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h3>Referanslar</h3>
+                    <button class="btn-add dark" onclick="addReference()" title="Referans Ekle"><i
+                            class="fas fa-plus-circle"></i></button>
+                </div>
+                <div id="reference-list">
+                    <div class="reference-item maker-item">
+                        <button class="btn-delete dark" onclick="this.parentElement.remove()" title="Sil"><i
+                                class="fas fa-times"></i></button>
+                        <h4 contenteditable="true">Hakan Önder, Aydınlı Grup</h4>
+                        <p contenteditable="true">Hakan.Onder@aydinli.com.tr | 0549 480 10 60</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

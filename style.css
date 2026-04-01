@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --sidebar-bg: #0b1a2a;
+    --text-color: #333;
+    --sidebar-text: #ffffff;
+    --accent-color: #ffffff;
+    --timeline-line: #ccc;
+    /* A4 at 96 DPI: Exactly 794x1122px */
+    --page-width: 794px;
+    --page-height: 1122px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    /* Restore body padding for screen view */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.btn-download {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #1a4475;
+}
+
+.cv-container {
+    width: 210mm;
+    height: 297mm;
+    background-color: #ffffff !important;
+    box-shadow: none; /* Removed white shadow as requested */
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto; /* Pulled up */
+    animation: fadeIn 0.8s ease-out;
+}
+
+
+/* Sidebar Styling */
+.sidebar {
+    width: 240px;
+    height: 100%;
+    background-color: #0b1a2a !important;
+    color: #ffffff !important;
+    padding: 10px 12px; /* Pulled up */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+.profile-img-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the circle without distortion */
+    object-position: top center;
+    /* Focuses on the face usually near the top */
+    display: block;
+}
+
+.profile-img-container .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@media print {
+    .profile-img-container .overlay {
+        display: none !important;
+    }
+}
+
+.profile-img-container:hover .overlay {
+    opacity: 1;
+}
+
+.sidebar h3 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.contact-item span[contenteditable="true"] {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.contact-item .label {
+    opacity: 1; /* Removed faint/shadow appearance */
+    font-size: 0.85rem;
+    min-width: 60px;
+}
+
+.social-links-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem; /* Smaller font for long links */
+}
+
+.social-item i {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.social-item a {
+    color: #ffffff; /* Removed opacity/faint color */
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px;
+}
+
+.social-item a:hover {
+    color: #ffffff;
+}
+
+/* Hidden in browser, shown only in PDF output */
+.pdf-show {
+    display: none;
+}
+
+.skills-list,
+.languages-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.skills-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.languages-list li {
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.stars {
+    color: #ffffff;
+    font-size: 0.75rem;
+    display: flex;
+    gap: 3px;
+}
+
+.stars i.far {
+    opacity: 0.4;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex: 1;
+    padding: 10px 25px; /* Pulled up */
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.header {
+    margin-bottom: 5px; /* Pulled up */
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    /* Slightly smaller */
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: #222;
+}
+
+.header h2 {
+    font-size: 1.1rem;
+    /* Slightly smaller */
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.summary-section {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #333; /* Darkened */
+    border-left: 3px solid var(--sidebar-bg);
+    padding-left: 15px;
+    margin-bottom: 8px; /* Pulled up */
+    font-style: italic;
+}
+
+.section {
+    margin-bottom: 12px;
+}
+
+.section h3 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Timeline specific styles needed for "İş Deneyimi" */
+.timeline {
+    position: relative;
+    border-left: 1px solid #ccc;
+    /* Continuous vertical line */
+    margin-left: 5px;
+    padding-left: 15px;
+    /* Reduced padding */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+/* The dot on the timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    /* Adjust based on padding-left of timeline */
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 2px solid #555;
+    border-radius: 50%;
+}
+
+.job-header {
+    margin-bottom: 5px;
+}
+
+.job-header h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.job-header .date {
+    font-size: 0.85rem;
+    color: #777;
+    display: block;
+    margin-top: 2px;
+}
+
+.job-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.job-description h5 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #222;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+}
+
+.job-description ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.job-description code {
+    background: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+}
+
+/* Education, Courses, References - simple block styles */
+.education-item,
+.course-item,
+.reference-item {
+    margin-bottom: 10px;
+}
+
+.education-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.course-item strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
+
+    .controls {
+        display: none !important;
+    }
+
+    .cv-container {
+        box-shadow: none;
+        width: 210mm !important;
+        height: 297mm !important;
+        overflow: hidden;
+        border: none;
+        margin: 0;
+        position: relative;
+    }
+
+    /* Ensure no background colors are lost */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+/* Base CV Container Fix Removed - Merged at top */
+
+/* Page break helper for print */
+.page-break {
+    page-break-before: always;
+}
+
+@media print {
+    .cv-container {
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+/* Ensure image container stays circular and handles background image correctly */
+.profile-img-container {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    position: relative;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+/* Maker Controls Styling */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.section-header h3 {
+    margin-bottom: 0 !important;
+}
+
+.total-experience {
+    font-size: 0.75rem;
+    color: #555;
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.btn-add {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.btn-add:hover {
+    color: #ffffff;
+}
+
+.btn-add.dark {
+    color: #ccc;
+}
+
+.btn-add.dark:hover {
+    color: #333;
+}
+
+.maker-item {
+    position: relative;
+}
+
+.btn-delete {
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.maker-item:hover .btn-delete {
+    opacity: 1;
+}
+
+.btn-delete:hover {
+    color: #ff4757;
+}
+
+.btn-delete.dark {
+    color: #ccc;
+    right: -20px;
+}
+
+.btn-delete.dark:hover {
+    color: #e74c3c;
+}
+
+/* Specific layout for language rows */
+.lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Hobbies section */
+.hobbies-section {
+    margin-top: 10px;
+}
+
+.hobbies-section li {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Common button hover effects */
+.btn-add:active, .btn-delete:active {
+    transform: scale(0.9);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation handled in main container style */
+
+/* Hide controls in print */
+@media print {
+    .btn-add,
+    .btn-delete,
+    .controls,
+    .overlay {
+        display: none !important;
+    }
+}
