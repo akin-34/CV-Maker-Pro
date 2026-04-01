@@ -1,4 +1,4 @@
-# 📄 CV Maker Pro — Tarayıcı Tabanlı Profesyonel Özgeçmiş Oluşturucu
+# 🛡️ CV Maker Pro — Tarayıcı Tabanlı Profesyonel Özgeçmiş Oluşturucu
 
 ![Lisans](https://img.shields.io/badge/Lisans-Kişisel-blue) ![Frontend](https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JS-orange) ![PDF](https://img.shields.io/badge/PDF-html2pdf.js-red) ![Bağımlılık](https://img.shields.io/badge/Bağımlılık-Sıfır-brightgreen)
 
