@@ -2,7 +2,7 @@
 
 Tarayıcı tabanlı, sıfır bağımlılıklı profesyonel CV oluşturucu. Kurulum gerektirmez; tek bir HTML dosyasını açarak kullanmaya başlayabilirsiniz.
 
-![CV Maker Pro Önizleme](preview.png)
+![CV Maker Pro Önizleme](assets/preview.png)
 
 ---
 
