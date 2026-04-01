@@ -1,6 +1,8 @@
-# CV Maker Pro
+# 📄 CV Maker Pro — Tarayıcı Tabanlı Profesyonel Özgeçmiş Oluşturucu
 
-Tarayıcı tabanlı, sıfır bağımlılıklı profesyonel CV oluşturucu. Kurulum gerektirmez; tek bir HTML dosyasını açarak kullanmaya başlayabilirsiniz.
+![Lisans](https://img.shields.io/badge/Lisans-Kişisel-blue) ![Frontend](https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JS-orange) ![PDF](https://img.shields.io/badge/PDF-html2pdf.js-red) ![Bağımlılık](https://img.shields.io/badge/Bağımlılık-Sıfır-brightgreen)
+
+**CV Maker Pro**, kurulum gerektirmeyen, tarayıcı tabanlı bir özgeçmiş oluşturucudur. Tek bir HTML dosyasını açarak tüm bölümleri doğrudan düzenleyebilir, profil fotoğrafı ekleyebilir ve tek tıkla profesyonel A4 PDF çıktısı alabilirsiniz.
 
 ![CV Maker Pro Önizleme](assets/preview.png)
 
@@ -9,7 +11,7 @@ Tarayıcı tabanlı, sıfır bağımlılıklı profesyonel CV oluşturucu. Kurul
 ## Özellikler
 
 - **Gerçek zamanlı düzenleme** — Her alan doğrudan sayfada tıklanarak düzenlenebilir
-- **Tek sayfa A4 PDF çıktısı** — PDF İndir butonuyla anında, profesyonel özgeçmiş
+- **Tek sayfa A4 PDF çıktısı** — PDF İndir butonuyla anında profesyonel özgeçmiş
 - **Profil fotoğrafı yükleme** — Profil alanına tıklayarak fotoğraf eklenebilir
 - **Bölüm yönetimi** — İş deneyimi, eğitim, sertifika, proje ve referans eklenip kaldırılabilir
 - **Dil yetkinlik puanı** — Yıldız sistemiyle dil seviyesi görsel olarak belirtilebilir
@@ -41,7 +43,7 @@ CV-Maker-Pro/
 ├── script.js               # PDF oluşturma ve etkileşim
 ├── AC_CV_Maker_Pro.bat     # Windows başlatıcı
 └── assets/
-    └── screenshot.png      # Önizleme görseli
+    └── preview.png         # Önizleme görseli
 ```
 
 ---
@@ -70,7 +72,7 @@ CV-Maker-Pro/
 
 ## Lisans
 
-Bu proje kişisel kullanım için geliştirilmiştir.
+Bu proje kişisel kullanım amacıyla geliştirilmiştir.
 
 ---
 
